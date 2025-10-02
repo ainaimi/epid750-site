@@ -6,24 +6,63 @@ export default function LecturesPage() {
   const lectures = [
     { 
       topic: "Introduction", 
-      description: "Introduction to the course, including topics, coding conventions, and structure", 
+      description: "Overview of causal inference and machine learning", 
       code: "#", notes: "#", video: "#" 
     },
     { 
       topic: "Datasets", 
-      description: "A randomized trial, observational study, and longitudinal study", 
+      description: "Working with real-world causal inference datasets", 
       code: "#", notes: "#", video: "#" 
     },
     { 
       topic: "Causal Inference", 
-      description: "Foundations of causal inference and parametric estimation", 
+      description: "Foundations of estimating causal effects", 
       code: "#", notes: "#", video: "#" 
     },
   ];
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Lectures</h1>
+      <h1 className="text-3xl font-bold mb-4">Lectures</h1>
+
+      {/* Intro section */}
+      <div className="mb-8 text-gray-700 space-y-4">
+        <p>
+          This page contains all course lectures organized by topic. Each row corresponds
+          to a lecture, with a short description of its contents. The resources for each
+          lecture are available through the icons on the right.
+        </p>
+
+        {/* Icon-only list */}
+        <ul className="space-y-2">
+          <li className="flex items-center gap-2">
+            <CommandLineIcon className="h-6 w-6 text-blue-600" />
+            <span>
+              Provides example R or Python scripts used in the lecture.
+            </span>
+          </li>
+          <li className="flex items-center gap-2">
+            <BookOpenIcon className="h-6 w-6 text-blue-600" />
+            <span>
+              Contains lecture slides or written material.
+            </span>
+          </li>
+          <li className="flex items-center gap-2">
+            <VideoCameraIcon className="h-6 w-6 text-blue-600" />
+            <span>
+              Links to the recorded lecture session.
+            </span>
+          </li>
+        </ul>
+
+        <p>
+          Use these resources together to reinforce key concepts in causal inference
+          and applied machine learning. We recommend reviewing notes before class,
+          running the code examples yourself, and revisiting the videos for clarification.
+        </p>
+      </div>
+
+      {/* Table of lectures */}
       <table className="w-full border-collapse">
         <tbody>
           {lectures.map((lec, idx) => (
