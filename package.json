@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@next/mdx": "^15.5.4",
+    "academicons": "^1.9.5",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.544.0",
     "next": "15.5.4",
