@@ -4,9 +4,21 @@ import { CommandLineIcon, BookOpenIcon, VideoCameraIcon } from "@heroicons/react
 
 export default function LecturesPage() {
   const lectures = [
-    { topic: "Introduction", code: "#", notes: "#", video: "#" },
-    { topic: "Datasets", code: "#", notes: "#", video: "#" },
-    { topic: "Causal Inference", code: "#", notes: "#", video: "#" },
+    { 
+      topic: "Introduction", 
+      description: "Introduction to the course, including topics, coding conventions, and structure", 
+      code: "#", notes: "#", video: "#" 
+    },
+    { 
+      topic: "Datasets", 
+      description: "A randomized trial, observational study, and longitudinal study", 
+      code: "#", notes: "#", video: "#" 
+    },
+    { 
+      topic: "Causal Inference", 
+      description: "Foundations of causal inference and parametric estimation", 
+      code: "#", notes: "#", video: "#" 
+    },
   ];
 
   return (
@@ -23,40 +35,37 @@ export default function LecturesPage() {
                 idx === 0 ? "border-t border-dotted border-gray-950" : ""
               }`}
             >
-              {/* Topic */}
-              <td className="px-4 py-2 font-medium">{lec.topic}</td>
-
-              {/* Code link with CommandLineIcon */}
-              <td className="px-4 py-2 text-center">
-                <a
-                  href={lec.code}
-                  className="text-blue-600 hover:text-blue-800"
-                  title="Code"
-                >
-                  <CommandLineIcon className="h-5 w-5 inline" />
-                </a>
+              {/* Topic with subtitle */}
+              <td className="px-4 py-2">
+                <div className="font-medium">{lec.topic}</div>
+                <div className="text-sm text-gray-600">{lec.description}</div>
               </td>
 
-              {/* Notes link with Book icon */}
-              <td className="px-4 py-2 text-center">
-                <a
-                  href={lec.notes}
-                  className="text-blue-600 hover:text-blue-800"
-                  title="Notes"
-                >
-                  <BookOpenIcon className="h-5 w-5 inline" />
-                </a>
-              </td>
-
-              {/* Video link with Camera icon */}
-              <td className="px-4 py-2 text-center">
-                <a
-                  href={lec.video}
-                  className="text-blue-600 hover:text-blue-800"
-                  title="Video"
-                >
-                  <VideoCameraIcon className="h-5 w-5 inline" />
-                </a>
+              {/* Icons (right) */}
+              <td className="px-4 py-2 text-right">
+                <div className="flex justify-end gap-6">
+                  <a
+                    href={lec.code}
+                    className="text-blue-600 hover:text-blue-800"
+                    title="Code"
+                  >
+                    <CommandLineIcon className="h-8 w-8" />
+                  </a>
+                  <a
+                    href={lec.notes}
+                    className="text-blue-600 hover:text-blue-800"
+                    title="Notes"
+                  >
+                    <BookOpenIcon className="h-8 w-8" />
+                  </a>
+                  <a
+                    href={lec.video}
+                    className="text-blue-600 hover:text-blue-800"
+                    title="Video"
+                  >
+                    <VideoCameraIcon className="h-8 w-8" />
+                  </a>
+                </div>
               </td>
             </tr>
           ))}
