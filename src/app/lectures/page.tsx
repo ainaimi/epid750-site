@@ -1,41 +1,62 @@
-import Link from "next/link"
+// src/app/lectures/page.tsx
+import React from "react";
 
 export default function LecturesPage() {
   const lectures = [
-    { topic: "Introduction", code: "#", notes: "#", video: "#" },
-    { topic: "Datasets", code: "#", notes: "#", video: "#" },
-    { topic: "Causal Inference", code: "#", notes: "#", video: "#" },
-  ]
+    {
+      topic: "Introduction",
+      code: "#", // replace with real link
+      notes: "#",
+      video: "#",
+    },
+    {
+      topic: "Datasets",
+      code: "#",
+      notes: "#",
+      video: "#",
+    },
+    {
+      topic: "Causal Inference",
+      code: "#",
+      notes: "#",
+      video: "#",
+    },
+  ];
 
   return (
-    <div>
-      <h1 className="text-xl font-semibold text-brand-navy mb-4">Lectures</h1>
-      <table className="table-auto border-collapse border border-neutral-400 w-full text-sm">
-        <thead>
-          <tr className="bg-neutral-50">
-            <th className="border border-neutral-300 px-3 py-2 text-left">Topic</th>
-            <th className="border border-neutral-300 px-3 py-2">Code</th>
-            <th className="border border-neutral-300 px-3 py-2">Notes</th>
-            <th className="border border-neutral-300 px-3 py-2">Video</th>
-          </tr>
-        </thead>
+    <main className="mx-auto max-w-4xl px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Lectures</h1>
+      <table className="w-full border-collapse">
         <tbody>
-          {lectures.map((lec) => (
-            <tr key={lec.topic}>
-              <td className="border border-neutral-300 px-3 py-2">{lec.topic}</td>
-              <td className="border border-neutral-300 px-3 py-2 text-center">
-                <Link href={lec.code} className="text-brand-link underline">Code</Link>
+          {lectures.map((lec, idx) => (
+            <tr
+              key={lec.topic}
+              className={`${
+                idx % 2 === 0 ? "bg-gray-50" : "bg-white"
+              } border-b border-dotted border-gray-1000 ${
+                idx === 0 ? "border-t border-dotted border-gray-1000" : ""
+              }`}
+            >
+              <td className="px-4 py-2 font-medium">{lec.topic}</td>
+              <td className="px-4 py-2">
+                <a href={lec.code} className="text-blue-600 hover:underline">
+                  Code
+                </a>
               </td>
-              <td className="border border-neutral-300 px-3 py-2 text-center">
-                <Link href={lec.notes} className="text-brand-link underline">Notes</Link>
+              <td className="px-4 py-2">
+                <a href={lec.notes} className="text-blue-600 hover:underline">
+                  Notes
+                </a>
               </td>
-              <td className="border border-neutral-300 px-3 py-2 text-center">
-                <Link href={lec.video} className="text-brand-link underline">Video</Link>
+              <td className="px-4 py-2">
+                <a href={lec.video} className="text-blue-600 hover:underline">
+                  Video
+                </a>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
-  )
+    </main>
+  );
 }
