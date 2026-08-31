@@ -8,7 +8,7 @@ Importantly, do not use these as a replacement for the course notes. You are pri
 
 You are encouraged to read this material, and bring any questions about it to the lab, lectures, or slack channel. 
 
-**This document is a work in progress**
+Additional readings will be posted as the course progresses.
 
 ## Week 0: Math Foundations
 

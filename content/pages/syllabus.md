@@ -12,6 +12,8 @@ header-includes:
 
 __COURSE TITLE:__ Applied Foundations of Study Design and Regression Modeling
 
+__COURSE WEBSITE:__ [https://ainaimi.github.io/epid750-site/](https://ainaimi.github.io/epid750-site/)
+
 __DEPARTMENT:__ Epidemiology
 
 __CREDIT HOURS__: 4
@@ -106,16 +108,22 @@ of the complexity of health. My hope is that EPID 785R will serve this end.
 
 ## COURSE LOGISTICS
 
-### CANVAS
+### Course Website and CANVAS
 
-- All materials for the course will be hosted on CANVAS. This includes the syllabus, lecture notes,
-lab notes/slides, data sets, homework assignments, and readings.
+- Materials needed for the course are primarily located on the course website:
+[https://ainaimi.github.io/epid750-site/](https://ainaimi.github.io/epid750-site/).
+This includes the syllabus, lecture notes, lab handouts and starter files,
+data sets, assignment handouts, and the reading list.
 
-- Course announcements and updates will be made in the course **Slack workspace**
-(see the Slack section below), which all students are expected to join. Email
-remains available for individual correspondence.
+- A few materials are the exception and will be hosted on CANVAS instead: PDFs of
+the reading-list articles and, potentially, some course videos.
 
-- You will be asked to use CANVAS to submit homework assignments by the assigned due date.
+- All assignments will be submitted via CANVAS by the assigned due date.
+
+- Main course communications (announcements, updates, discussion, and questions)
+will occur via the course **Slack workspace** (see the Slack section below), which
+all students are expected to join. Email remains available for individual
+correspondence.
 
 ### Slack
 
