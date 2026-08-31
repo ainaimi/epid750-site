@@ -122,8 +122,8 @@ the reading-list articles and, potentially, some course videos.
 
 - Main course communications (announcements, updates, discussion, and questions)
 will occur via the course **Slack workspace** (see the Slack section below), which
-all students are expected to join. Email remains available for individual
-correspondence.
+all students are expected to join. Of course, email remains available for individual
+correspondence (reach out to me!: <a href="mailto:ashley.naimi@emory.edu">ashley.naimi@emory.edu</a>).
 
 ### Slack
 
