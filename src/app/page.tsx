@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import { site } from "@/site.config"
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
       <div className="mx-auto max-w-3xl">
         <div className="relative aspect-[16/9] overflow-hidden border border-neutral-400/40 rounded-none">
           <Image
-            src="/art/flow_fig.png"
+            src="/art/turmite.png"
             alt="Course artwork"
             fill
             sizes="(max-width: 48rem) 100vw, 48rem"
@@ -36,7 +35,7 @@ export default function Home() {
             rel="noreferrer"
             className="underline underline-offset-2 hover:opacity-80"
           >
-            Flow field curves
+            Turmite: an image derived from a Turing machine like algorithm
           </a>
           . Image source:{" "}
           <a

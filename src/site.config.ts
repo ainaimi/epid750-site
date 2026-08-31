@@ -1,24 +1,26 @@
 // src/site.config.ts
 // Fill these from your Jekyll _config.yml values
 export const site = {
-  title:        "ML4CI",                 // from: title
-  //  subtitle:     "Machine Learning for Causal Inference",                      // from: subtitle (optional)
+  title:        "EPID 750",                 // from: title
+  subtitle:     "",                      // from: subtitle (optional)
  description: `
-  <p>This course covers the basics behind using machine learning methods for estimating causal effects.</p>
+  <p>This course focuses on the foundational relationships between study design 
+and regression for doctoral students in Epidemiology. The course starts with a focus
+on study design principles, using the target trial emulation framework. The course
+then focuses in depths on applied regression modeling, including:</p>
 
-  <p>By the end of this course you should have a solid understanding of:</p>
   <ul>
-    <li>the challenges of estimating causal effects with data</li>
-    <li>when/why one should use machine learning to estimate causal effects</li>
-    <li>the challenges of using machine learning methods for estimating causal effects</li>
-    <li>how to estimate causal effects with machine learning methods in R</li>
+    <li>Regression as a toolkit for descriptive, predictive, and causal inference</li>
+    <li>Generalized linear models, variance estimation, conditional versus marginal adjustment</li>
+    <li>Flexible and penalized regression</li>
+    <li>Regression for outcome dependent sampling designs</li>
+    <li>Models for time-to-event outcomes, including nonparametric estimators, parametric, and semiparametric approaches</li>
   </ul>
-
-  <p>The literature on ML and causal inference is expansive and complex. 
-  There are some essential concepts that are not easy to understand for 
-  those with little to no formal technical background. The purpose of this 
-  course is to help you fill this gap, and give you some ability to use advanced 
-  analytic techniques in data.</p>
+   
+This course adopts the philosophy that regression machinery is fundamentally descriptive in nature, 
+at the level of the statistical model. The scientific use of a regression model, whether descriptive,
+predictive, or causal, is determined by the question being asked and the assumptions
+brought to the analysis. This course will demonstrate how and why.</p>
 `,                      // from: description  ← put your course blurb here
   email:        "ashley.naimi@emory.edu",                      // from: email
   twitterUser:  "ashley_naimi",                      // from: twitter_username (no @)

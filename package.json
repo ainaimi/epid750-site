@@ -1,5 +1,5 @@
 {
-  "name": "ml4ci-next",
+  "name": "epid750-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,10 +14,13 @@
     "academicons": "^1.9.5",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.544.0",
-    "next": "15.5.4",
-    "next-mdx-remote": "^5.0.0",
+    "next": "^15.5.12",
+    "next-mdx-remote": "^6.0.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

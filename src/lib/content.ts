@@ -4,7 +4,7 @@ import matter from "gray-matter"
 
 export type Doc = {
   slug: string
-  data: Record<string, any>
+  data: Record<string, unknown>
   body: string
 }
 

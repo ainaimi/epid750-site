@@ -3,7 +3,7 @@ import Link from "next/link"
 import { sans } from "./fonts"
 import "./globals.css"
 import { site, links } from "@/site.config"
-import { Mail, Twitter, Github, Globe } from "lucide-react"
+import { Mail, Twitter, Github, Globe } from "lucide-react" // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export const metadata: Metadata = {
   title: site.title || "ML4CI",
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/syllabus", label: "Syllabus" },
     { href: "/lectures", label: "Lectures" },
     { href: "/labs", label: "Labs" },
     { href: "/data", label: "Data" },
