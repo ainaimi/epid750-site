@@ -35,7 +35,7 @@ export default function LabsPage() {
 
       <div className="mb-8 text-gray-700 space-y-4">
         <p>
-          Labs are hands-on R sessions that put the week&apos;s concepts to work.
+          Labs are hands-on R sessions provide an opportunity to practice deploying concepts learned in the lectures.
           Each lab has a handout you can read in the browser and a starter bundle
           (project file, scripts, and README) to download and work from. Lab
           deliverables are yours to keep; they are not collected or graded.
@@ -53,12 +53,8 @@ export default function LabsPage() {
         </ul>
 
         <p>
-          Each starter bundle includes everything the lab needs, data included:
-          Lab 1 ships with the raw eICU demo tables already in place under{" "}
-          <code>data/raw/</code> (so the download script is optional, ~22 MB
-          zip), and Lab 2 ships with the Lab 1 analytic dataset at{" "}
-          <code>data/analytic_dataset.csv</code> in case you did not complete
-          Lab 1 in place. Datasets used in the lecture notes live on the{" "}
+          Each starter bundle can be downloaded as a self contaied file that includes everything you need to 
+          run the lab. Material for later labs will be posted here as the course progresses.
           <Link href="/data" className="text-blue-600 hover:underline">
             Data page
           </Link>
