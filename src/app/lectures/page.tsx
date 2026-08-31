@@ -12,6 +12,12 @@ type Lecture = {
 export default function LecturesPage() {
   const lectures: Lecture[] = [
     {
+      topic: "Week 0: Math Foundations",
+      description:
+        "A self-paced refresher on the mathematical tools the course leans on: notation, functions and logarithms, calculus, and working with expectations. Opens as a web page.",
+      notes: asset("/notes/week0_math_foundations.html"),
+    },
+    {
       topic: "Week 1: Randomized Controlled Trials & Emulation",
       description:
         "Why trials anchor causal questions: eligibility, time zero, assignment, adherence, and emulating a target trial with observational data.",
@@ -40,7 +46,8 @@ export default function LecturesPage() {
         <p>
           This page contains the course lecture notes, organized by week. Each row
           corresponds to a week of the course, with a short description of its
-          contents. The notes open as PDF files via the icon on the right.
+          contents. The notes open via the icon on the right (Week 0 as a web
+          page, later weeks as PDF files).
         </p>
 
         <ul className="space-y-2">

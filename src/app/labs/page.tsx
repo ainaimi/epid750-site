@@ -53,8 +53,12 @@ export default function LabsPage() {
         </ul>
 
         <p>
-          The datasets used by the labs, including the raw eICU demo tables and
-          the Lab 1 analytic dataset, are available on the{" "}
+          Each starter bundle includes everything the lab needs, data included:
+          Lab 1 ships with the raw eICU demo tables already in place under{" "}
+          <code>data/raw/</code> (so the download script is optional, ~22 MB
+          zip), and Lab 2 ships with the Lab 1 analytic dataset at{" "}
+          <code>data/analytic_dataset.csv</code> in case you did not complete
+          Lab 1 in place. Datasets used in the lecture notes live on the{" "}
           <Link href="/data" className="text-blue-600 hover:underline">
             Data page
           </Link>
@@ -99,6 +103,35 @@ export default function LabsPage() {
           ))}
         </tbody>
       </table>
+
+      <div className="mt-8 text-sm text-gray-600 space-y-3">
+        <p>
+          <strong>eICU attribution.</strong> The Lab 1 bundle redistributes the
+          eICU Collaborative Research Database Demo (v2.0.1), and the Lab 2
+          bundle a dataset derived from it, under the{" "}
+          <a
+            href="https://opendatacommons.org/licenses/odbl/1-0/"
+            className="text-blue-600 hover:underline"
+          >
+            Open Data Commons Open Database License v1.0
+          </a>
+          . Please cite: Pollard T, Johnson A, Raffa J, Celi LA, Badawi O, Mark
+          R. eICU Collaborative Research Database Demo (version 2.0.1).
+          PhysioNet, 2021.{" "}
+          <a
+            href="https://doi.org/10.13026/4mxk-na84"
+            className="text-blue-600 hover:underline"
+          >
+            doi:10.13026/4mxk-na84
+          </a>
+          ; and the companion paper: Pollard et al., <em>Scientific Data</em>{" "}
+          2018;5:180178. Documentation:{" "}
+          <a href="https://eicu.mit.edu" className="text-blue-600 hover:underline">
+            eicu.mit.edu
+          </a>
+          .
+        </p>
+      </div>
     </main>
   );
 }

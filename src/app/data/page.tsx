@@ -1,6 +1,7 @@
 // src/app/data/page.tsx
 import React from "react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { asset } from "@/site.config";
 
 type Dataset = {
@@ -81,87 +82,26 @@ export default function DataPage() {
     },
   ];
 
-  const labData: Dataset[] = [
-    {
-      name: "analytic_dataset.csv",
-      file: "/data/analytic_dataset.csv",
-      description:
-        "The Lab 1 endpoint: the analytic cohort built from the eICU demo (one row per eligible ICU stay). Needed as the input to Lab 2 if you have not completed Lab 1 in place.",
-      terms: "Derived from the eICU-CRD Demo; ODbL v1.0 (see below).",
-    },
-    {
-      name: "eicu/patient.csv.gz",
-      file: "/data/eicu/patient.csv.gz",
-      description: "eICU-CRD Demo v2.0.1 patient table (raw input to Lab 1).",
-      terms: "ODbL v1.0 (see below).",
-    },
-    {
-      name: "eicu/infusiondrug.csv.gz",
-      file: "/data/eicu/infusiondrug.csv.gz",
-      description: "eICU-CRD Demo v2.0.1 infusion drug table (raw input to Lab 1).",
-      terms: "ODbL v1.0 (see below).",
-    },
-    {
-      name: "eicu/vitalAperiodic.csv.gz",
-      file: "/data/eicu/vitalAperiodic.csv.gz",
-      description: "eICU-CRD Demo v2.0.1 aperiodic vitals table (raw input to Lab 1).",
-      terms: "ODbL v1.0 (see below).",
-    },
-    {
-      name: "eicu/vitalPeriodic.csv.gz",
-      file: "/data/eicu/vitalPeriodic.csv.gz",
-      description:
-        "eICU-CRD Demo v2.0.1 periodic vitals table (raw input to Lab 1). Large file (~19 MB compressed).",
-      terms: "ODbL v1.0 (see below).",
-    },
-  ];
-
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">Data</h1>
 
       <div className="mb-8 text-gray-700 space-y-4">
         <p>
-          All datasets used in the course notes and labs are available here. Lab
-          1 also provides a script (<code>R/00_download_data.R</code> in the
-          starter bundle) that fetches the raw eICU tables directly from
-          PhysioNet; the copies below are provided for convenience and as a
-          fallback.
+          The datasets used in the course lecture notes are available here. Data
+          for the labs (the raw eICU demo tables and the Lab 1 analytic dataset)
+          ships inside each lab&apos;s starter bundle on the{" "}
+          <Link href="/labs" className="text-blue-600 hover:underline">
+            Labs page
+          </Link>
+          .
         </p>
       </div>
 
       <h2 className="text-xl font-semibold mb-3">Course datasets</h2>
       <DataTable rows={courseData} />
 
-      <h2 className="text-xl font-semibold mb-3">Lab data</h2>
-      <DataTable rows={labData} />
-
       <div className="text-sm text-gray-600 space-y-3">
-        <p>
-          <strong>eICU attribution.</strong> The eICU Collaborative Research
-          Database Demo (v2.0.1) is redistributed here under the{" "}
-          <a
-            href="https://opendatacommons.org/licenses/odbl/1-0/"
-            className="text-blue-600 hover:underline"
-          >
-            Open Data Commons Open Database License v1.0
-          </a>
-          . Please cite: Pollard T, Johnson A, Raffa J, Celi LA, Badawi O, Mark
-          R. eICU Collaborative Research Database Demo (version 2.0.1).
-          PhysioNet, 2021.{" "}
-          <a
-            href="https://doi.org/10.13026/4mxk-na84"
-            className="text-blue-600 hover:underline"
-          >
-            doi:10.13026/4mxk-na84
-          </a>
-          ; and the companion paper: Pollard et al., <em>Scientific Data</em>{" "}
-          2018;5:180178. Documentation:{" "}
-          <a href="https://eicu.mit.edu" className="text-blue-600 hover:underline">
-            eicu.mit.edu
-          </a>
-          .
-        </p>
         <p>
           <strong>kidneys.csv attribution.</strong> Carlin JB (2024). Dataset on
           kidney lengths in young children for teaching purposes. University of
