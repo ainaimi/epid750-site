@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* The site is a fixed light design (navy header, white/gray tables), so we
+   pin the color scheme rather than half-inherit the OS dark theme: without
+   this, dark-mode users got a near-black body behind fixed dark-gray text. */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -33,10 +37,6 @@
   --prose-bold: var(--color-brand-navy);
   --prose-links: var(--color-brand-link);
   --prose-links-hover: var(--color-brand-blue);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root { --background: #0a0a0a; --foreground: #ededed; }
 }
 
 body {
