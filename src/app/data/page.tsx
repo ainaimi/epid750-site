@@ -68,18 +68,6 @@ export default function DataPage() {
       description: "Variable codebook accompanying nhefs.csv.",
       terms: "As above.",
     },
-    {
-      name: "cens_dat.csv",
-      file: "/data/cens_dat.csv",
-      description: "Small synthetic dataset illustrating censoring structures.",
-      terms: "Synthetic; created for this course.",
-    },
-    {
-      name: "trunc_dat.csv",
-      file: "/data/trunc_dat.csv",
-      description: "Small synthetic dataset illustrating truncation structures.",
-      terms: "Synthetic; created for this course.",
-    },
   ];
 
   return (
