@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { site } from "@/site.config"
+import { asset, site } from "@/site.config"
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       <div className="mx-auto max-w-3xl">
         <div className="relative aspect-[16/9] overflow-hidden border border-neutral-400/40 rounded-none">
           <Image
-            src="/art/turmite.png"
+            src={asset("/art/turmite.png")}
             alt="Course artwork"
             fill
             sizes="(max-width: 48rem) 100vw, 48rem"
