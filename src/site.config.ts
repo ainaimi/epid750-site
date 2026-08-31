@@ -1,8 +1,8 @@
 // src/site.config.ts
 // Fill these from your Jekyll _config.yml values
 export const site = {
-  title:        "EPID 750",                 // from: title
-  subtitle:     "",                      // from: subtitle (optional)
+  title:        "EPID 785R",                 // from: title
+  subtitle:     "Applied Foundations of Study Design and Regression Modeling",                      // from: subtitle (optional)
  description: `
   <p>This course focuses on the foundational relationships between study design 
 and regression for doctoral students in Epidemiology. The course starts with a focus
@@ -28,6 +28,12 @@ brought to the analysis. This course will demonstrate how and why.</p>
   authorUrl:    "https://bit.ly/3GFu2o1",                      // from: authorurl (your professional site)
   syllabusUrl:  "",                      // from: syllabus_url (optional)
 }
+
+// Base path for static assets in public/ (set by the Pages build; empty locally).
+// Plain <a href> links to public/ assets do NOT get Next's basePath automatically,
+// so always wrap them: <a href={asset("/notes/x.pdf")}>.
+export const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+export const asset = (p: string) => `${BASE}${p}`
 
 // Derived links (safe even if the usernames are blank)
 export const links = {

@@ -1,23 +1,33 @@
 // src/app/lectures/page.tsx
 import React from "react";
-import { CommandLineIcon, BookOpenIcon, VideoCameraIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { asset } from "@/site.config";
+
+type Lecture = {
+  topic: string;
+  description: string;
+  notes?: string;
+};
 
 export default function LecturesPage() {
-  const lectures = [
-    { 
-      topic: "Introduction", 
-      description: "Overview of causal inference and machine learning", 
-      code: "#", notes: "#", video: "#" 
+  const lectures: Lecture[] = [
+    {
+      topic: "Week 1: Randomized Controlled Trials & Emulation",
+      description:
+        "Why trials anchor causal questions: eligibility, time zero, assignment, adherence, and emulating a target trial with observational data.",
+      notes: asset("/notes/week1_trials_emulation.pdf"),
     },
-    { 
-      topic: "Datasets", 
-      description: "Working with real-world causal inference datasets", 
-      code: "#", notes: "#", video: "#" 
+    {
+      topic: "Week 2: Data Collection",
+      description:
+        "From estimands to data requirements: censoring, truncation, competing events, and pairing estimands with estimators.",
+      notes: asset("/notes/week2_data_collection.pdf"),
     },
-    { 
-      topic: "Causal Inference", 
-      description: "Foundations of estimating causal effects", 
-      code: "#", notes: "#", video: "#" 
+    {
+      topic: "Week 3: Outcome-Dependent Sampling",
+      description:
+        "Case-control and case-cohort designs, control-sampling schemes, and what outcome-dependent sampling buys and costs.",
+      notes: asset("/notes/week3_outcome_sampling.pdf"),
     },
   ];
 
@@ -28,37 +38,22 @@ export default function LecturesPage() {
       {/* Intro section */}
       <div className="mb-8 text-gray-700 space-y-4">
         <p>
-          This page contains all course lectures organized by topic. Each row corresponds
-          to a lecture, with a short description of its contents. The resources for each
-          lecture are available through the icons on the right.
+          This page contains the course lecture notes, organized by week. Each row
+          corresponds to a week of the course, with a short description of its
+          contents. The notes open as PDF files via the icon on the right.
         </p>
 
-        {/* Icon-only list */}
         <ul className="space-y-2">
           <li className="flex items-center gap-2">
-            <CommandLineIcon className="h-6 w-6 text-blue-600" />
-            <span>
-              Provides example R or Python scripts used in the lecture.
-            </span>
-          </li>
-          <li className="flex items-center gap-2">
             <BookOpenIcon className="h-6 w-6 text-blue-600" />
-            <span>
-              Contains lecture slides or written material.
-            </span>
-          </li>
-          <li className="flex items-center gap-2">
-            <VideoCameraIcon className="h-6 w-6 text-blue-600" />
-            <span>
-              Links to the recorded lecture session.
-            </span>
+            <span>Opens the written lecture notes for that week (PDF).</span>
           </li>
         </ul>
 
         <p>
-          Use these resources together to reinforce key concepts in causal inference
-          and applied machine learning. We recommend reviewing notes before class,
-          running the code examples yourself, and revisiting the videos for clarification.
+          Notes for later weeks are posted here as the course progresses. We
+          recommend reading the notes before class and revisiting them alongside
+          the labs.
         </p>
       </div>
 
@@ -83,27 +78,15 @@ export default function LecturesPage() {
               {/* Icons (right) */}
               <td className="px-4 py-2 text-right">
                 <div className="flex justify-end gap-6">
-                  <a
-                    href={lec.code}
-                    className="text-blue-600 hover:text-blue-800"
-                    title="Code"
-                  >
-                    <CommandLineIcon className="h-8 w-8" />
-                  </a>
-                  <a
-                    href={lec.notes}
-                    className="text-blue-600 hover:text-blue-800"
-                    title="Notes"
-                  >
-                    <BookOpenIcon className="h-8 w-8" />
-                  </a>
-                  <a
-                    href={lec.video}
-                    className="text-blue-600 hover:text-blue-800"
-                    title="Video"
-                  >
-                    <VideoCameraIcon className="h-8 w-8" />
-                  </a>
+                  {lec.notes && (
+                    <a
+                      href={lec.notes}
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Lecture notes (PDF)"
+                    >
+                      <BookOpenIcon className="h-8 w-8" />
+                    </a>
+                  )}
                 </div>
               </td>
             </tr>

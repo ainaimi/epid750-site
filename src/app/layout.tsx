@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     { href: "/lectures", label: "Lectures" },
     { href: "/labs", label: "Labs" },
     { href: "/data", label: "Data" },
-    { href: "/homework", label: "Homework" },
+    { href: "/assignments", label: "Assignments" },
     { href: "/readings", label: "Readings" },
   ]
 
