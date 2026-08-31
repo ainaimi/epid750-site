@@ -102,6 +102,19 @@ export default function DataPage() {
           </a>{" "}
           (CC BY 4.0).
         </p>
+        <p>
+          <strong>nhefs.csv and NHEFS_Codebook.xls attribution.</strong> The
+          NHEFS extract and its codebook accompany Hernán MA and Robins JM,{" "}
+          <em>Causal Inference: What If</em> (Boca Raton: Chapman &amp;
+          Hall/CRC, 2020), and were obtained from the{" "}
+          <a
+            href="https://miguelhernan.org/whatifbook"
+            className="text-blue-600 hover:underline"
+          >
+            book&apos;s website
+          </a>
+          , which also hosts the full text and related materials.
+        </p>
       </div>
     </main>
   );
