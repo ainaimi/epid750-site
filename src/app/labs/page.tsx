@@ -35,10 +35,11 @@ export default function LabsPage() {
 
       <div className="mb-8 text-gray-700 space-y-4">
         <p>
-          Labs are hands-on R sessions provide an opportunity to practice deploying concepts learned in the lectures.
-          Each lab has a handout you can read in the browser and a starter bundle
-          (project file, scripts, and README) to download and work from. Lab
-          deliverables are yours to keep; they are not collected or graded.
+          Labs are hands-on R sessions that provide an opportunity to practice
+          deploying concepts learned in the lectures. Each lab has a handout you
+          can read in the browser and a starter bundle (project file, scripts,
+          and README) to download and work from. Lab deliverables are yours to
+          keep; they are not collected or graded.
         </p>
 
         <ul className="space-y-2">
@@ -53,8 +54,10 @@ export default function LabsPage() {
         </ul>
 
         <p>
-          Each starter bundle can be downloaded as a self contaied file that includes everything you need to 
-          run the lab. Material for later labs will be posted here as the course progresses.
+          Each starter bundle can be downloaded as a self-contained file that
+          includes everything you need to run the lab. Material for later labs
+          will be posted here as the course progresses. Datasets used in the
+          lecture notes live on the{" "}
           <Link href="/data" className="text-blue-600 hover:underline">
             Data page
           </Link>
