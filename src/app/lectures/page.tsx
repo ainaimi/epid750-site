@@ -35,6 +35,12 @@ export default function LecturesPage() {
         "Case-control and case-cohort designs, control-sampling schemes, and what outcome-dependent sampling buys and costs.",
       notes: asset("/notes/week3_outcome_sampling.pdf"),
     },
+    {
+      topic: "Week 4: Regression as a Toolkit",
+      description:
+        "One machine, three uses: descriptive, predictive, and causal questions; least squares and maximum likelihood under the hood; and the three roadmaps.",
+      notes: asset("/notes/week4_regression_toolkit.pdf"),
+    },
   ];
 
   return (
