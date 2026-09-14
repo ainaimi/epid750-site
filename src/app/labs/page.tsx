@@ -1,6 +1,10 @@
 // src/app/labs/page.tsx
 import React from "react";
-import { DocumentTextIcon, ArchiveBoxArrowDownIcon } from "@heroicons/react/24/outline";
+import {
+  DocumentTextIcon,
+  ArchiveBoxArrowDownIcon,
+  KeyIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { asset } from "@/site.config";
 
@@ -9,6 +13,7 @@ type Lab = {
   description: string;
   handout: string;
   starter: string;
+  solutions?: string;
 };
 
 export default function LabsPage() {
@@ -19,6 +24,7 @@ export default function LabsPage() {
         "Build an analytic dataset from the eICU demo database, from protocol and eligibility through exposure, outcome, and quality control.",
       handout: asset("/labs/lab1.html"),
       starter: asset("/labs/lab1_starter.zip"),
+      solutions: asset("/labs/lab1_solutions.zip"),
     },
     {
       topic: "Lab 2: Sampling Controls Three Ways",
@@ -50,6 +56,14 @@ export default function LabsPage() {
           <li className="flex items-center gap-2">
             <ArchiveBoxArrowDownIcon className="h-6 w-6 text-blue-600" />
             <span>Downloads the starter files (zip).</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <KeyIcon className="h-6 w-6 text-blue-600" />
+            <span>
+              Downloads the answer packet (answer key and completed scripts;
+              posted after a lab wraps up). Unzip it into your lab folder, next
+              to the starter files.
+            </span>
           </li>
         </ul>
 
@@ -96,6 +110,17 @@ export default function LabsPage() {
                   >
                     <ArchiveBoxArrowDownIcon className="h-8 w-8" />
                   </a>
+                  {lab.solutions ? (
+                    <a
+                      href={lab.solutions}
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Answer packet (zip)"
+                    >
+                      <KeyIcon className="h-8 w-8" />
+                    </a>
+                  ) : (
+                    <span aria-hidden="true" className="h-8 w-8" />
+                  )}
                 </div>
               </td>
             </tr>
