@@ -19,6 +19,13 @@ export default function AssignmentsPage() {
       due: "Due Tuesday, September 15, 2026",
       pdf: asset("/assignments/assignment1.pdf"),
     },
+    {
+      topic: "Assignment 2",
+      description:
+        "Outcome-dependent sampling and regression as a toolkit (Weeks 3–4). Free-response questions; graded for completion.",
+      due: "Due Tuesday, September 22, 2026",
+      pdf: asset("/assignments/assignment2.pdf"),
+    },
   ];
 
   return (
