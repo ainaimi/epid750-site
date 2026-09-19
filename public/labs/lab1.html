@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="YOUR NAME HERE">
-<meta name="dcterms.date" content="2026-08-26">
+<meta name="dcterms.date" content="2026-09-18">
 
 <title>Lab 1 — Constructing an Analytic Dataset for a Target Trial Emulation</title>
 <style>
@@ -2214,7 +2214,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2026</p>
+      <p class="date">September 18, 2026</p>
     </div>
   </div>
   
@@ -2563,7 +2563,7 @@ $ baseline_map_source      &lt;chr&gt; &quot;invasive&quot;, &quot;cuff&quot;, &
 </div>
 </div>
 <p><strong>The takeaway.</strong> Each piece of the R pipeline operationalizes a specific component of the target trial — eligibility, strategies, classification, follow-up, outcome — and seemingly simple choices about <em>treatment timing</em> determine whether eligibility, assignment, and follow-up are properly aligned. When you read (or run) an observational study, the first questions to ask are the ones this lab made you answer with code: when is time zero, what could be known at it, and does follow-up start there?</p>
-<p><em>Where this dataset goes next:</em> Lab 2 samples from this cohort by outcome (case-control designs); the survival weeks use <code>death_event</code> and <code>followup_days</code> to build risk curves, where live discharge, censoring, and competing events get their full treatment.</p>
+<p><em>Where this dataset goes next:</em> Lab 2 treats this cohort as a fully enumerated source population and samples from it by outcome (the case-cohort design: all the cases plus a random subcohort, weighted back up to the cohort); the survival weeks use <code>death_event</code> and <code>followup_days</code> to build risk curves, where live discharge, censoring, and competing events get their full treatment.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>

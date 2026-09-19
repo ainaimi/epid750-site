@@ -27,9 +27,9 @@ export default function LabsPage() {
       solutions: asset("/labs/lab1_solutions.zip"),
     },
     {
-      topic: "Lab 2: Sampling Controls Three Ways",
+      topic: "Lab 2: The Case-Cohort Design",
       description:
-        "Cumulative (survivor), case-base, and incidence-density sampling on the Lab 1 cohort, and which effect measure each scheme recovers.",
+        "Draw a 20% subcohort plus all cases from the Lab 1 cohort, build the time-varying weights, and check weighted risk-curve, risk-ratio, and risk-difference estimates against the fully enumerated cohort.",
       handout: asset("/labs/lab2.html"),
       starter: asset("/labs/lab2_starter.zip"),
     },
