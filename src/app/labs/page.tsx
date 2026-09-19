@@ -32,6 +32,7 @@ export default function LabsPage() {
         "Draw a 20% subcohort plus all cases from the Lab 1 cohort, build the time-varying weights, and check weighted risk-curve, risk-ratio, and risk-difference estimates against the fully enumerated cohort.",
       handout: asset("/labs/lab2.html"),
       starter: asset("/labs/lab2_starter.zip"),
+      solutions: asset("/labs/lab2_solutions.zip"),
     },
   ];
 
