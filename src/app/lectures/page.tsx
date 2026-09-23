@@ -41,6 +41,12 @@ export default function LecturesPage() {
         "One machine, three uses: descriptive, predictive, and causal questions; least squares and maximum likelihood under the hood; and the three roadmaps.",
       notes: asset("/notes/week4_regression_toolkit.pdf"),
     },
+    {
+      topic: "Week 5: The Anatomy of a Regression Model",
+      description:
+        "The slots of a regression model and the choices they encode: left and right hand sides, target versus nuisance functions, links, distributions, offsets, and the parametric to nonparametric spectrum.",
+      notes: asset("/notes/week5_regression_anatomy.pdf"),
+    },
   ];
 
   return (
