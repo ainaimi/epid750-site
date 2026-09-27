@@ -42,7 +42,9 @@ Lash TL and Rothman KJ. Case-Control Studies. In: Modern Epidemiology, 4th Ed. C
 
 ## Week 4: Regression as a Toolkit: The Descriptive-Predictive-Causal Framework
 
-Carlin JB and Moreno-Betancur M. On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching. *Statistics in Medicine* 2025;44(13-14):e10244 [[DOI](https://doi.org/10.1002/sim.10244)]
+Carlin JB and Moreno-Betancur M. On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching. *Statistics in Medicine* 2025;44(13-14):e10244 [[DOI](https://doi.org/10.1002/sim.10244)] — the PDF also contains the published commentaries and the authors' rejoinder; read at least Vansteelandt S and Steen J. Discussion of "On the Uses and Abuses of Regression Models." *Statistics in Medicine* 2025;44:e10312 (pp. 17–21 of the file), which Lab 3 draws on.
+
+Lesko CR, Fox MP, and Edwards JK. A Framework for Descriptive Epidemiology. *American Journal of Epidemiology* 2022;191(12):2063--2070 [[DOI](https://doi.org/10.1093/aje/kwac115)] — the framework Lab 3's descriptive step follows.
 
 Greenland S. Some Ways to Make Regression Modeling More Helpful Than Misleading. *Statistics in Medicine* 2025;44(13-14):e10313 [[DOI](https://doi.org/10.1002/sim.10313)]
 

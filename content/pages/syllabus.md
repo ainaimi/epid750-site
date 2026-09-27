@@ -189,7 +189,7 @@ Each assignment is worth **5 points** (6 × 5 = 30 points total; 30% of final gr
 | Assignment | Weeks Covered | Topics | Due Date | Points |
 |-----------|---------------|--------|----------|--------|
 | 1 | 1–2 | RCT & Emulation; Data Collection | Tue Sep 15 | 5 |
-| 2 | 3–4 | Outcome-Dependent Sampling; Regression as a Toolkit | Tue Sep 22 | 5 |
+| 2 | 3–4 | Outcome-Dependent Sampling; Regression as a Toolkit | Tue Sep 29 | 5 |
 | 3 | 5–6 | Anatomy of a Regression Model; Generalized Linear Models | Tue Oct 6 | 5 |
 | 4 | 7–8 | Variance Estimation; Conditional vs. Marginal Adjustment | Tue Oct 27 | 5 |
 | 5 | 9–10 | Flexible Regression; Penalized Regression | Tue Nov 10 | 5 |
@@ -320,7 +320,7 @@ Labs meet Monday mornings and practice the *preceding* week's lecture — each l
 |  |  |  |
 | **4**<br>Lab: Mon 9/21<br>Lec: Tue 9/22 | **Regression as a Toolkit: The Descriptive-Predictive-Causal Framework**<br>• Regression machinery is always descriptive <br>• Descriptive-predictive-causal trichotomy<br>• Conditional expectation as the regression target<br>• Bias-variance as a practical tension | **Lab 2: The Case-Cohort Design**<br>• Treat the Lab 1 cohort as a fully enumerated source population; compute benchmark risks, risk ratio, and risk difference<br>• Draw a 20% subcohort plus all the cases; build the time-varying weights<br>• Weighted Kaplan-Meier risk curve, log-Poisson risk ratio, and linear risk difference, with robust SEs<br>• Deliberately keep all the cases' person-time to see what breaks<br>• Check everything against the fully enumerated cohort |
 |  |  |  |
-| **5**<br>Lab: Mon 9/28<br>Lec: Tue 9/29 | **The Anatomy of a Regression Model**<br>• The LHS and the RHS<br>• Target and nuisance functions<br>• Link functions<br>• Distributions<br>• Offsets<br>• The parametric → semiparametric → nonparametric spectrum | **Lab 3: Three Questions**<br>• Formulate a descriptive, predictive, and causal estimand from data provided<br>• Identify the distinct assumptions required for each |
+| **5**<br>Lab: Mon 9/28<br>Lec: Tue 9/29 | **The Anatomy of a Regression Model**<br>• The LHS and the RHS<br>• Target and nuisance functions<br>• Link functions<br>• Distributions<br>• Offsets<br>• The parametric → semiparametric → nonparametric spectrum | **Lab 3: Three Questions**<br>• Fit one multivariable logistic model to the Lab 1 cohort *before any question is asked*<br>• Write a descriptimand (Lesko et al.), a predictimand (Vansteelandt & Steen), and revisit Lab 1's causal estimand<br>• Read the same printout three ways: crude vs. adjusted description; coefficient size vs. AUC contribution; the exposure row and the Table 2 fallacy<br>• Identify the distinct assumptions each question requires — and evaluate what backwards selection would delete under each |
 |  |  |  |
 | **6**<br>Lab: Mon 10/5<br>Lec: Tue 10/6 | **Generalized Linear Models**<br>• Linear model and OLS: what are we minimizing and why?<br>• MLE and IRWLS: one worked numerical example<br>• Logistic, log-binomial, Poisson, multinomial, other<br>• Exponential family as organizing concept; canonical link functions and what they represent<br>• GLM diagnostics | **Lab 4: Dissect a Regression Model**<br>• Change link functions (identity → log → logit) and compare fitted values and interpretation<br>• Add an offset to a rate model<br>• Fit the same relationship three ways: linear model, spline, NPMLE<br>• Visualize the parametric → nonparametric spectrum |
 |  |  |  |

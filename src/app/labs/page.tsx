@@ -34,6 +34,14 @@ export default function LabsPage() {
       starter: asset("/labs/lab2_starter.zip"),
       solutions: asset("/labs/lab2_solutions.zip"),
     },
+    {
+      topic: "Lab 3: Three Questions",
+      description:
+        "Fit one logistic regression to the Lab 1 cohort before asking any question, then read the same printout three times — descriptively, predictively, and causally — writing down the estimand and the assumptions each reading needs.",
+      handout: asset("/labs/lab3.html"),
+      starter: asset("/labs/lab3_starter.zip"),
+      solutions: asset("/labs/lab3_solutions.zip"),
+    },
   ];
 
   return (
@@ -61,9 +69,8 @@ export default function LabsPage() {
           <li className="flex items-center gap-2">
             <KeyIcon className="h-6 w-6 text-blue-600" />
             <span>
-              Downloads the answer packet (answer key and completed scripts;
-              posted after a lab wraps up). Unzip it into your lab folder, next
-              to the starter files.
+              Downloads the answer packet (answer key and completed scripts).
+              Unzip it into your lab folder, next to the starter files.
             </span>
           </li>
         </ul>
@@ -133,7 +140,7 @@ export default function LabsPage() {
         <p>
           <strong>eICU attribution.</strong> The Lab 1 bundle redistributes the
           eICU Collaborative Research Database Demo (v2.0.1), and the Lab 2
-          bundle a dataset derived from it, under the{" "}
+          and Lab 3 bundles a dataset derived from it, under the{" "}
           <a
             href="https://opendatacommons.org/licenses/odbl/1-0/"
             className="text-blue-600 hover:underline"
