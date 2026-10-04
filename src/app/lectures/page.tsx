@@ -47,6 +47,12 @@ export default function LecturesPage() {
         "The slots of a regression model and the choices they encode: left and right hand sides, target versus nuisance functions, links, distributions, offsets, and the parametric to nonparametric spectrum.",
       notes: asset("/notes/week5_regression_anatomy.pdf"),
     },
+    {
+      topic: "Week 6: Generalized Linear Models",
+      description:
+        "One loop, two functions: every GLM as iteratively reweighted least squares with a variance function and a link plugged in; the exponential family and canonical links; a menu of families fit to simulated and NHEFS data; and why the family is a choice about the variance, not the coefficient.",
+      notes: asset("/notes/week6_glms.pdf"),
+    },
   ];
 
   return (
