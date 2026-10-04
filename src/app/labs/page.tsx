@@ -42,6 +42,16 @@ export default function LabsPage() {
       starter: asset("/labs/lab3_starter.zip"),
       solutions: asset("/labs/lab3_solutions.zip"),
     },
+    {
+      topic: "Lab 4: Dissect a Regression Model",
+      description:
+        "Turn one dial of one model at a time on the Lab 1 cohort: change the link (identity, log, logit) and compare fitted values; add an offset and watch a risk ratio become a rate ratio; fit death against age as a line, a spline, and a saturated model, and visualize the parametric-to-nonparametric spectrum.",
+      handout: asset("/labs/lab4.html"),
+      starter: asset("/labs/lab4_starter.zip"),
+      // release the answer packet after the lab wraps (also uncomment the
+      // lab4_solutions.zip recipe in the course Makefile):
+      // solutions: asset("/labs/lab4_solutions.zip"),
+    },
   ];
 
   return (
@@ -139,8 +149,8 @@ export default function LabsPage() {
       <div className="mt-8 text-sm text-gray-600 space-y-3">
         <p>
           <strong>eICU attribution.</strong> The Lab 1 bundle redistributes the
-          eICU Collaborative Research Database Demo (v2.0.1), and the Lab 2
-          and Lab 3 bundles a dataset derived from it, under the{" "}
+          eICU Collaborative Research Database Demo (v2.0.1), and the Lab 2,
+          Lab 3, and Lab 4 bundles a dataset derived from it, under the{" "}
           <a
             href="https://opendatacommons.org/licenses/odbl/1-0/"
             className="text-blue-600 hover:underline"
