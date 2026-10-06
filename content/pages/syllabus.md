@@ -190,7 +190,7 @@ Each assignment is worth **5 points** (6 × 5 = 30 points total; 30% of final gr
 |-----------|---------------|--------|----------|--------|
 | 1 | 1–2 | RCT & Emulation; Data Collection | Tue Sep 15 | 5 |
 | 2 | 3–4 | Outcome-Dependent Sampling; Regression as a Toolkit | Tue Sep 29 | 5 |
-| 3 | 5–6 | Anatomy of a Regression Model; Generalized Linear Models | Tue Oct 6 | 5 |
+| 3 | 5–6 | Anatomy of a Regression Model; Generalized Linear Models | Mon Oct 26 | 5 |
 | 4 | 7–8 | Variance Estimation; Conditional vs. Marginal Adjustment | Tue Oct 27 | 5 |
 | 5 | 9–10 | Flexible Regression; Penalized Regression | Tue Nov 10 | 5 |
 | 6 | 11–13 | Regression for Outcome-Dependent Sampling; Survival Analysis: Concepts; Survival Analysis: Parametric and Semiparametric Models | Tue Dec 1 | 5 |
@@ -226,7 +226,7 @@ Each peer grade is worth **4 points** (5 × 4 = 20 points total; 20% of final gr
 |-----------|---------|----------|--------|
 | 1 | Assignment 1 | Tue Sep 22 | 4 |
 | 2 | Assignment 2 | Tue Oct 6 | 4 |
-| 3 | Assignment 3 | Tue Oct 27 | 4 |
+| 3 | Assignment 3 | Mon Nov 9 | 4 |
 | 4 | Assignment 4 | Tue Nov 10 | 4 |
 | 5 | Assignment 5 | Tue Nov 24 | 4 |
 
