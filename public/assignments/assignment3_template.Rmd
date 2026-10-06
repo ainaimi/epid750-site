@@ -1,0 +1,156 @@
+---
+title: "Assignment 3"
+subtitle: "The Anatomy of a Regression Model and Generalized Linear Models (Weeks 5–6)"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+urlcolor: blue
+output:
+  pdf_document:
+    number_sections: true
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+# No package is required for this assignment. If you use any, load them here,
+# for example: library(tidyverse)
+```
+
+# How to use this template {-}
+
+1. Put your name in the `author:` field above and save this file as
+   `assignment3_lastname.Rmd`.
+2. Each part of each question is followed by an answer block that begins with
+   **Answer.** Replace the italic placeholder with your answer. Leave the
+   question text in place so that your peer reviewer can read your answer next
+   to what was asked.
+3. Write mathematics in LaTeX between dollar signs, for example
+   `$\hat\beta_1 = \log(6/3)$` for inline math or `$$ ... $$` for a displayed
+   equation. Where you use R, add a chunk (Ctrl/Cmd + Alt + I in RStudio) so
+   that both your code and its output appear in the rendered file.
+4. If you include an image, add it with `knitr::include_graphics("yourfile.png")` inside a
+   chunk and upload the image file together with this `.Rmd`.
+5. Knit to PDF before you submit (the **Knit** button, or
+   `rmarkdown::render("assignment3_lastname.Rmd")` from the R console). The file 
+   must render. If you do not have a LaTeX installation, run
+   `tinytex::install_tinytex()` once (install the `tinytex` package first using `install.packages()`).
+6. Submit the `.Rmd` file through Canvas.
+
+# Question 1: Two Coding Standards in One Model
+
+An analyst is trying to study whether neighborhood tree-canopy cover (continuous, in
+percentage points of land area) affects a continuous depressive-symptom score,
+using a linear model. The confounders are age (years), household income (six
+ordered bands, coded 1 through 6 in the data file), and census region (four
+regions, coded 1 through 4). The first regression model enters every variable as the
+numeric variable in the data file (i.e., no dummy variables, no splines, no polynomials, etc):
+
+$$E(Y \mid \text{canopy}, \text{age}, \text{income}, \text{region})
+  = \beta_0 + \beta_1\,\text{canopy} + \beta_2\,\text{age}
+  + \beta_3\,\text{income} + \beta_4\,\text{region}.$$
+
+a) Split the right-hand side into its target and nuisance functions, and state
+what each one is coded *for*.
+
+**Answer.** *Write your answer here.*
+
+b) Region is entered as a single numeric variable. What does that coding assert
+about the outcome mean across the four regions? Is this a reasonable assertion?
+What does the fix cost in parameters? Income is also a single numeric
+variable; say in one sentence why the same objection applies less strongly for the income variable.
+
+**Answer.** *Write your answer here.*
+
+c) The canopy coefficient is 0.004 symptom-score points per percentage point of
+canopy, with standard error 0.002, and a reviewer calls it "negligible."
+Report the coefficient and standard error per 10 percentage points and say what
+happens to the Wald test statistic (defined as the point estimate / standard error).
+A colleague proposes a standardized effect, rescaling canopy to standard-deviation units
+instead. The SD of canopy cover is 12 points in this cohort. In a separate 
+replication cohort, the corresponding SD is 20. Why would the two cohorts' per-SD coefficients differ even if the
+canopy effect was identical?
+
+**Answer.** *Write your answer here.*
+
+# Question 2: Coordinates or Filter?
+
+A closed cohort is cross-classified by a binary exposure $X$, a binary
+covariate $C$, and a binary outcome $Y$, with 100 people in each $(X, C)$ cell, with cell numerators representing the event tally:
+
+| | $X = 0$ | $X = 1$ |
+|:---|:---:|:---:|
+| $C = 0$ | 10 / 100 | 20 / 100 |
+| $C = 1$ | 30 / 100 | 40 / 100 |
+
+a) Compute the risk difference, risk ratio, and odds ratio for $X$ within each
+level of $C$, and say which contrast is the same in both strata. Then consider
+the saturated binomial model
+$g[P(Y = 1 \mid X, C)] = \beta_0 + \beta_1 X + \beta_2 C + \beta_3 XC$ under
+the identity, log, and logit links. Without fitting anything, say what the
+fitted risks in the four cells are in terms of model parameters, write the four
+identity-link coefficients by hand. What does the link determine in a saturated model?
+
+**Answer.** *Write your answer here.*
+
+b) Now drop the product term, leaving three parameters for four cells. Name the
+one pattern each link's model now keeps (one risk difference, one risk ratio,
+or one odds ratio). Exactly one of the three reproduces all four observed
+risks: say which, and explain how a three-parameter model can be lossless
+here. For the other two, say what feature of the table ends up in the
+residuals. (No fitting is needed; in R you would find fitted risks of
+0.122 / 0.179 / 0.282 / 0.415 under the log link and 0.114 / 0.186 / 0.286 /
+0.414 under the logit.)
+
+**Answer.** *Write your answer here.*
+
+# Question 3: Choosing the Family Is Choosing the Variance
+
+An analyst models an indicator of above-median weight gain ($Y$) against
+quitting smoking ($X$) with a log link, so that $\exp(\beta_1)$ is a risk
+ratio, under three families with the same right-hand side.
+
+- *Crude model* ($X$ only): risks are 0.467 among non-quitters and 0.596 among
+  quitters, and the binomial, Poisson, and Gaussian families return the same
+  risk ratio, 1.275517, to six decimals.
+- *Adjusted model* ($X$ plus age, sex, race, exercise, marital status, and
+  smoking intensity): the three families return 1.333, 1.355, and 1.348. The
+  model-based standard error of $\hat\beta_1$ is 0.050 under the binomial and
+  0.080 under the Poisson; a robust (sandwich) correction of the Poisson fit
+  gives 0.052, with $\hat\beta_1$ unchanged.
+
+a) Why are the three crude estimates identical, and the three adjusted
+estimates close but not identical? Say what the family contributes to the
+point estimate, and why that contribution disappears in a saturated model.
+
+**Answer.** *Write your answer here.*
+
+b) The Poisson model-based standard error is 60% larger than the binomial's.
+Using the two variance functions, $\mu$ and $\mu(1 - \mu)$, explain the
+direction of the error, and say which direction it would take instead for a
+count outcome whose variance exceeds its mean.
+
+**Answer.** *Write your answer here.*
+
+# Question 4: Two Ways a GLM Fails to Converge
+
+a) An analyst fits a log-binomial model, `family = binomial(link = "log")`,
+to a binary outcome and receives the message *"no valid set of coefficients
+has been found: please supply starting values."* Why can the binomial 
+likelihood not be evaluated there? Why can a logistic model never produce this message?
+
+**Answer.** *Write your answer here.*
+
+b) With starting values supplied, the fit converges (risk ratio 1.33, largest
+fitted probability 0.85). Give one reason to treat such a rescued fit
+with caution. Name two routine alternatives, and detail how you would apply them to data.
+
+**Answer.** *Write your answer here.*
+
+c) In a 12-site cohort study that adjusts for site as a nuisance factor, one
+site enrolled 9 patients, all of whom had the outcome. The logistic fit reports
+a coefficient of 17.5 for that site's indicator, with standard error 789, and
+fitted probabilities of 1.000 for those 9 patients. Name this phenomenon,
+and give two remedies to the problem discussed (or to be discussed) in class. Say in one sentence how this failure
+differs from the one in (a).
+
+**Answer.** *Write your answer here.*

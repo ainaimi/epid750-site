@@ -1,6 +1,6 @@
 // src/app/assignments/page.tsx
 import React from "react";
-import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, DocumentArrowDownIcon } from "@heroicons/react/24/outline";
 import { asset } from "@/site.config";
 
 type Assignment = {
@@ -8,6 +8,7 @@ type Assignment = {
   description: string;
   due: string;
   pdf: string;
+  template?: string;
 };
 
 export default function AssignmentsPage() {
@@ -26,6 +27,14 @@ export default function AssignmentsPage() {
       due: "Due Tuesday, September 22, 2026",
       pdf: asset("/assignments/assignment2.pdf"),
     },
+    {
+      topic: "Assignment 3",
+      description:
+        "The anatomy of a regression model and generalized linear models (Weeks 5–6). Free-response questions; graded for completion. Submitted as an R Markdown file: download the template, write your answers in it, and knit it to PDF before uploading.",
+      due: "Due Monday, October 26, 2026",
+      pdf: asset("/assignments/assignment3.pdf"),
+      template: asset("/assignments/assignment3_template.Rmd"),
+    },
   ];
 
   return (
@@ -36,7 +45,9 @@ export default function AssignmentsPage() {
         <p>
           Assignments are posted here as they are released, and submitted
           according to the instructions in the syllabus. Each assignment opens as
-          a PDF via the icon on the right.
+          a PDF via the book icon on the right. Where an assignment is submitted
+          as an R Markdown file, the second icon downloads the answer template
+          (an .Rmd file with the questions and an answer block under each part).
         </p>
       </div>
 
@@ -65,6 +76,18 @@ export default function AssignmentsPage() {
                   >
                     <BookOpenIcon className="h-8 w-8" />
                   </a>
+                  {a.template ? (
+                    <a
+                      href={a.template}
+                      download
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Answer template (Rmd)"
+                    >
+                      <DocumentArrowDownIcon className="h-8 w-8" />
+                    </a>
+                  ) : (
+                    <span aria-hidden="true" className="h-8 w-8" />
+                  )}
                 </div>
               </td>
             </tr>
