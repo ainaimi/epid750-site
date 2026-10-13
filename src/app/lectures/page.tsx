@@ -53,6 +53,12 @@ export default function LecturesPage() {
         "One loop, two functions: every GLM as iteratively reweighted least squares with a variance function and a link plugged in; the exponential family and canonical links; a menu of families fit to simulated and NHEFS data; and why the family is a choice about the variance, not the coefficient.",
       notes: asset("/notes/week6_glms.pdf"),
     },
+    {
+      topic: "Week 7: Variance Estimation",
+      description:
+        "Where standard errors come from: sampling variability through the superpopulation lens; the model-based variance built from residuals and the design matrix; sandwich estimators for non-constant variance and clustered data (HC0 to HC3, cluster-robust, and the link to GEE); and normal, percentile, and BCa bootstrap intervals, each computed by hand and checked against the packaged versions.",
+      notes: asset("/notes/week7_variance.pdf"),
+    },
   ];
 
   return (
