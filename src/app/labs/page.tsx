@@ -48,9 +48,15 @@ export default function LabsPage() {
         "Turn one dial of one model at a time on the Lab 1 cohort: change the link (identity, log, logit) and compare fitted values; add an offset and watch a risk ratio become a rate ratio; fit death against age as a line, a spline, and a saturated model, and visualize the parametric-to-nonparametric spectrum.",
       handout: asset("/labs/lab4.html"),
       starter: asset("/labs/lab4_starter.zip"),
-      // release the answer packet after the lab wraps (also uncomment the
-      // lab4_solutions.zip recipe in the course Makefile):
-      // solutions: asset("/labs/lab4_solutions.zip"),
+      solutions: asset("/labs/lab4_solutions.zip"),
+    },
+    {
+      topic: "Lab 5: Fit the GLM Family to a Single Outcome",
+      description:
+        "Fit Lab 3's model as a logistic, log-binomial, Poisson (with and without the person-time offset), and linear probability model; watch which fits converge and what each reports for the exposure; compare predicted probabilities; fit death against age as a line, a spline, and a saturated model (carried over from Lab 4); then compute the logistic fit's residuals, leverage, and Cook's distance by hand.",
+      handout: asset("/labs/lab5.html"),
+      starter: asset("/labs/lab5_starter.zip"),
+      solutions: asset("/labs/lab5_solutions.zip"),
     },
   ];
 
@@ -150,7 +156,7 @@ export default function LabsPage() {
         <p>
           <strong>eICU attribution.</strong> The Lab 1 bundle redistributes the
           eICU Collaborative Research Database Demo (v2.0.1), and the Lab 2,
-          Lab 3, and Lab 4 bundles a dataset derived from it, under the{" "}
+          Lab 3, Lab 4, and Lab 5 bundles a dataset derived from it, under the{" "}
           <a
             href="https://opendatacommons.org/licenses/odbl/1-0/"
             className="text-blue-600 hover:underline"
