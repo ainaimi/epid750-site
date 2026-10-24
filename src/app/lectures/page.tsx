@@ -59,6 +59,12 @@ export default function LecturesPage() {
         "Where standard errors come from: sampling variability through the superpopulation lens; the model-based variance built from residuals and the design matrix; sandwich estimators for non-constant variance and clustered data (HC0 to HC3, cluster-robust, and the link to GEE); and normal, percentile, and BCa bootstrap intervals, each computed by hand and checked against the packaged versions.",
       notes: asset("/notes/week7_variance.pdf"),
     },
+    {
+      topic: "Week 8: Conditional vs. Marginal Adjustment",
+      description:
+        "What the exposure coefficient actually returns: collapsibility and the characteristic collapsibility function, with Jensen's inequality explaining why the odds ratio is noncollapsible while risk differences and ratios are not; conditionally adjusted estimates read from a model versus marginally adjusted estimates obtained by standardizing its predictions (the g formula) or by inverse probability weighting; interactions, the stratified outcome model, and bootstrap intervals for all of it on the NHEFS data.",
+      notes: asset("/notes/week8_conditional_marginal.pdf"),
+    },
   ];
 
   return (
