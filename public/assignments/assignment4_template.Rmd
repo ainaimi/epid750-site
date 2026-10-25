@@ -1,0 +1,180 @@
+---
+title: "Assignment 4"
+subtitle: "Variance Estimation and Conditional vs. Marginal Adjustment (Weeks 7–8)"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+urlcolor: blue
+output:
+  pdf_document:
+    number_sections: true
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+# No package is required for this assignment. If you use any, load them here,
+# for example: library(tidyverse)
+```
+
+# How to use this template {-}
+
+1. Put your name in the `author:` field above and save this file as
+   `assignment4_lastname.Rmd`.
+2. Each part of each question is followed by an answer block that begins with
+   **Answer.** Replace the italic placeholder with your answer. Leave the
+   question text in place so that your peer reviewer can read your answer next
+   to what was asked.
+3. Write mathematics in LaTeX between dollar signs, for example
+   `$\exp(\hat\beta_1) = 3$` for inline math or `$$ ... $$` for a displayed
+   equation. Where you use R, add a chunk (Ctrl/Cmd + Alt + I in RStudio) so
+   that both your code and its output appear in the rendered file.
+4. If you include an image, add it with `knitr::include_graphics("yourfile.png")` inside a
+   chunk and upload the image file together with this `.Rmd`.
+5. Knit to PDF before you submit (the **Knit** button, or
+   `rmarkdown::render("assignment4_lastname.Rmd")` from the R console). The file
+   must render. If you do not have a LaTeX installation, run
+   `tinytex::install_tinytex()` once (install the `tinytex` package first using `install.packages()`).
+6. Submit the `.Rmd` file through Canvas.
+
+# Question 1: Two Patients per Practice
+
+A cluster randomized trial assigned ten clinical practices to a treatment or a
+control arm, five practices each, and enrolled about two patients per practice,
+twenty patients in all. The outcome is BMI at one year. An analyst fits the
+linear model $E(Y \mid X) = \beta_0 + \beta_1 X$ by ordinary least squares,
+where $X$ is the treatment indicator, and obtains $\hat\beta_1 = 0.42$. Five
+standard errors for $\hat\beta_1$ are then computed from the same fit. All five
+are the sandwich
+$V(\hat\beta) = (X^{\intercal}X)^{-1} X^{\intercal} \Sigma X (X^{\intercal}X)^{-1}$
+with a different rule for $\Sigma$:
+
+| Estimator | Standard error of $\hat\beta_1$ |
+|:---|:---:|
+| Model-based | 1.90 |
+| HC3 | 2.01 |
+| Cluster-robust, by practice (HC0) | 2.61 |
+| Cluster-robust, by practice (HC1) | 2.68 |
+| Cluster-robust, by practice (HC3) | 3.12 |
+
+(The data are Table 1 of the Mansournia et al. reading, if you want to
+reproduce the numbers; no computation is required.)
+
+a) Say what fills $\Sigma$ under the model-based estimator and under HC3 (one
+sentence each), and name the assumption about the twenty observations that
+both of them share. Why does that assumption fail in this trial? Explain why 
+HC3 moved the standard error so little (1.90 to 2.01)
+while the cluster-robust estimator moved it from 1.90 to 2.61.
+
+**Answer.** *Write your answer here.*
+
+b) The analyst then fits a cluster robust HC3 variance estimator. State what happens to the coefficients 
+in the linear model. State specifically how the cluster robust HC3 variance estimator differs from the 
+standard HC3 variance estimator? Which component of the sandwich variance equation changes, and how does it change?
+
+**Answer.** *Write your answer here.*
+
+c) The analyst writes: "With the cluster-robust standard error, the treatment
+estimate is now unbiased and its confidence interval is valid." Say whether the 
+cluster-robust estimator counts people or clusters, i.e., which of the trial's two
+numbers (twenty versus ten), therefore matters more for the standard error?
+
+**Answer.** *Write your answer here.*
+
+# Question 2: A Negative Risk Ratio
+
+In a cohort of 1,000 people, 500 exposed and 500 unexposed, the outcome
+occurs in 25 exposed and 10 unexposed people, so the risk ratio is
+$(25/500)/(10/500) = 2.5$. An analyst bootstraps it: 2,000 resamples of 1,000
+rows drawn with replacement, with the risk ratio recomputed in each. The 2,000
+risk ratio replicates have mean 2.76 and standard deviation 1.22, and their
+2.5th and 97.5th percentiles are 1.25 and 5.72. The same resamples give log
+risk ratio replicates with mean 0.94 and standard deviation 0.38. Passing the
+risk ratio replicates to `boot.ci(type = "norm")` returns the 95% interval
+$(-0.15,\ 4.62)$; `type = "bca"` returns $(1.19,\ 5.61)$. Of the 2,000 risk
+ratio replicates, 49.6% fall below 2.5.
+
+a) The lower limit is negative. Say what the normal-interval bootstrap assumes
+about the estimator and why that produced an impossible value here? Name the
+two properties from the notes that this interval lacks. 
+
+**Answer.** *Write your answer here.*
+
+b) The percentile interval $(1.25,\ 5.72)$ is the same whether it is computed
+on the risk ratio scale or on the log scale and then exponentiated. Explain
+why? Could the percentile interval have crossed zero here on the risk ratio scale? Why or why not?
+
+**Answer.** *Write your answer here.*
+
+# Question 3: One Table, Three Measures
+
+A cohort of 800 people is cross-classified by a binary exposure $X$, a binary
+covariate $Z$, and a binary outcome $Y$, with 200 people in each $(X, Z)$ cell.
+$Z$ affects $Y$ but has no relation to $X$, so it is not a confounder; it is
+split 50:50 in both exposure groups. Cell entries are events / people:
+
+| | $X = 0$ | $X = 1$ |
+|:---|:---:|:---:|
+| $Z = 0$ | 20 / 200 | 50 / 200 |
+| $Z = 1$ | 100 / 200 | 150 / 200 |
+
+a) Compute the risk difference, risk ratio, and odds ratio within each stratum
+of $Z$ and in the whole cohort (collapsed over $Z$). Classify each of the three
+measures as strictly collapsible, collapsible, or noncollapsible, saying what
+each term means. For the odds ratio, say which direction the overall estimate departs from
+the stratum-specific estimates.
+
+**Answer.** *Write your answer here.*
+
+b) The logistic model
+$\text{logit}\, P(Y = 1 \mid X, Z) = \beta_0 + \beta_1 X + \beta_2 Z$ fit to
+these 800 people returns $\exp(\hat\beta_1) = 3.00$, and its fitted risks equal
+the four observed risks. Marginal standardization from the same fitted model,
+predicting every person's risk with $X$ set to 1 and then to 0 and averaging
+each set, returns an odds ratio of 2.33. Where does this 2.33 come from, and
+explain how every person's odds ratio can be 3 while the odds ratio of the
+averaged risks is not? 
+
+**Answer.** *Write your answer here.*
+
+c) Fit to the same data, the log-link model
+$\log P(Y = 1 \mid X, Z) = \gamma_0 + \gamma_1 X + \gamma_2 Z$ returns
+$\exp(\hat\gamma_1) = 1.59$, and standardizing it returns a risk ratio of
+exactly 1.59; the identity-link model's coefficient and its standardized risk
+difference are both 0.189. Explain why standardization reproduces the
+coefficient under these two links but not under the logit. 
+
+**Answer.** *Write your answer here.*
+
+# Question 4: Which Nuisance Do You Model?
+
+Twenty people have a binary confounder $C$ (ten with $C = 0$, ten with
+$C = 1$) and a binary exposure $X$. Among those with $C = 0$, two are exposed
+and eight unexposed; among those with $C = 1$, nine are exposed and one
+unexposed. So $P(X = 1 \mid C = 0) = 0.2$, $P(X = 1 \mid C = 1) = 0.9$, and
+$P(X = 1) = 11/20 = 0.55$.
+
+a) For each of the four $(C, X)$ groups, compute the unstabilized and stabilized inverse
+probability weights. Explain in what sense $C$ no longer predicts $X$ in the
+pseudo-population, and what the stabilized weights preserve that the unstabilized
+ones do not.
+
+**Answer.** *Write your answer here.*
+
+b) Now suppose the study has 40,000 people, 150 events, and 25 measured
+confounders, and you must choose between marginal standardization from an
+outcome model and IP weighting from an exposure model. Say which nuisance
+function each route models and which model's misspecification each is
+vulnerable to. Additionally, a colleague proposes a third route: a logistic model of the
+outcome on the exposure, adjusting for the estimated propensity score, and reading off the
+exposure coefficient from the model. What kind of estimand is
+the coefficient that arises from this propensity score adjustment method?
+
+**Answer.** *Write your answer here.*
+
+c) The weighted contrast is estimated with
+`glm(y ~ x, weights = sw, family = quasibinomial("identity"))`. Why
+`quasibinomial` rather than `binomial`? Why are the model-based standard errors
+from the `quasibinomial` fit not valid? How does the bootstrap fix this problem?
+
+
+**Answer.** *Write your answer here.*

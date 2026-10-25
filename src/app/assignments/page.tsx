@@ -35,6 +35,14 @@ export default function AssignmentsPage() {
       pdf: asset("/assignments/assignment3.pdf"),
       template: asset("/assignments/assignment3_template.Rmd"),
     },
+    {
+      topic: "Assignment 4",
+      description:
+        "Variance estimation and conditional vs. marginal adjustment (Weeks 7–8). Free-response questions; graded for completion. Submitted as an R Markdown file: download the template, write your answers in it, and knit it to PDF before uploading.",
+      due: "Due Monday, November 9, 2026",
+      pdf: asset("/assignments/assignment4.pdf"),
+      template: asset("/assignments/assignment4_template.Rmd"),
+    },
   ];
 
   return (
