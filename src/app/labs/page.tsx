@@ -58,6 +58,14 @@ export default function LabsPage() {
       starter: asset("/labs/lab5_starter.zip"),
       solutions: asset("/labs/lab5_solutions.zip"),
     },
+    {
+      topic: "Lab 6: Compute Variance Three Ways",
+      description:
+        "No dataset this time: build a world in which the truth is known, compute the model-based and robust (HC0 to HC3) sandwiches by hand and with the sandwich package, see what R, Stata, and SAS each print by default for the same model, then draw thousands of samples to see which standard error matches the spread of the estimates, with and without heteroscedasticity; finish with the bootstrap by hand and with boot(), and put the bootstrap inside the simulation to check its coverage too.",
+      handout: asset("/labs/lab6.html"),
+      starter: asset("/labs/lab6_starter.zip"),
+      solutions: asset("/labs/lab6_solutions.zip"),
+    },
   ];
 
   return (
