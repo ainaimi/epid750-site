@@ -65,6 +65,12 @@ export default function LecturesPage() {
         "What the exposure coefficient actually returns: collapsibility and the characteristic collapsibility function, with Jensen's inequality explaining why the odds ratio is noncollapsible while risk differences and ratios are not; conditionally adjusted estimates read from a model versus marginally adjusted estimates obtained by standardizing its predictions (the g formula) or by inverse probability weighting; interactions, the stratified outcome model, and bootstrap intervals for all of it on the NHEFS data.",
       notes: asset("/notes/week8_conditional_marginal.pdf"),
     },
+    {
+      topic: "Week 9: Flexible Regression",
+      description:
+        "What a wrong functional form costs, twice over: residual confounding in the exposure coefficient that no sample size removes, and a dose-response curve that is not there; splines as basis expansions, from piecewise linear fits and a restricted quadratic spline built by hand to natural, B-, and restricted cubic splines in R; choosing the degrees of freedom by cross-validation, the discrete super learner, and the super learner, and why a fit the data chose has no standard error; and partially linear models estimated by cross-fitted residual-on-residual regression, which gets the standard error back.",
+      notes: asset("/notes/week9_flexible_regression.pdf"),
+    },
   ];
 
   return (
