@@ -68,6 +68,14 @@ export default function DataPage() {
       description: "Variable codebook accompanying nhefs.csv.",
       terms: "As above.",
     },
+    {
+      name: "cluster_trial_data_bmi.csv",
+      file: "/data/cluster_trial_data_bmi.csv",
+      description:
+        "Twenty patients from a cluster randomized trial example: BMI at one year (kg/m²), treatment arm (1/0), and clinical practice (10 practices, five per arm). The data are Table 1 of Mansournia et al. (2021), the Week 7 reading; the Week 7 notes use them for model-based, robust, and cluster-robust standard errors. The file begins with a byte-order mark, which readr::read_csv() ignores; base read.csv() needs fileEncoding = 'UTF-8-BOM'.",
+      terms:
+        "Transcribed from Table 1 of Mansournia MA et al. (2021), Int J Epidemiol 50(1):346–351, doi:10.1093/ije/dyaa260. Cite the article when you use the data.",
+    },
   ];
 
   return (
@@ -114,6 +122,25 @@ export default function DataPage() {
             book&apos;s website
           </a>
           , which also hosts the full text and related materials.
+        </p>
+        <p>
+          <strong>cluster_trial_data_bmi.csv attribution.</strong> The twenty
+          observations are Table 1 of Mansournia MA, Nazemipour M, Naimi AI,
+          Collins GS, Campbell MJ (2021). Reflection on modern methods:
+          demystifying robust standard errors for epidemiologists.{" "}
+          <em>International Journal of Epidemiology</em> 50(1):346&ndash;351,{" "}
+          <a
+            href="https://doi.org/10.1093/ije/dyaa260"
+            className="text-blue-600 hover:underline"
+          >
+            doi:10.1093/ije/dyaa260
+          </a>
+          . The article takes the example from Campbell MJ,{" "}
+          <em>
+            Statistics at Square Two: Understanding Modern Statistical
+            Applications in Medicine
+          </em>{" "}
+          (Blackwell, 2006). Please cite the article when you use the data.
         </p>
       </div>
     </main>
