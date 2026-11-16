@@ -1,5 +1,7 @@
 # Reading List — EPID 785R
 
+> **Final exam study guide.** [Download the study guide (PDF)](/assignments/final_exam_study_guide.pdf). It lists each final exam topic from the syllabus, what you are expected to know about it, and where that material lives in the notes, labs, assignments, and pop quizzes. The exam is Monday, December 14, 9:00 AM to 12:00 PM, in the R. Randall Rollins Building, room R344.
+
 Note that these readings are recommended but not required. However, they were carefully selected 
 to be of the most benefit to you as you navigate the concepts in this course. The intention is that
 they will continue to serve you as you build your knowledge of these topics. 

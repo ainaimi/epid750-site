@@ -99,9 +99,9 @@ of the complexity of health. My hope is that EPID 785R will serve this end.
   8. Compute model-based, sandwich, and bootstrap variance estimates; recognize when each is appropriate. Explain the consequences of using model-based standard errors under misspecification.
   9. Distinguish conditional from marginal effect estimates and identify when each is the appropriate inferential target; implement g-computation and IP weighting in time-fixed settings to obtain marginal estimates from a fitted regression model.
   10. Explain the sources and implications of collapsibility, using the characteristic collapsibility function to identify whether a modeling strategy will yield different conditional versus marginal association measures.
-  11. Apply splines, generalized additive models, and partially linear models to flexibly estimate dose-response relationships and model nuisance functions. Demonstrate why misspecification of the nuisance function in a parametric model can bias inference on the target parameter.
+  11. Apply splines, data-adaptive nuisance models (the super learner), and partially linear models to flexibly estimate dose-response relationships and model nuisance functions. Demonstrate why misspecification of the nuisance function in a parametric model can bias inference on the target parameter.
   12. Apply ridge, lasso, and elastic net regression to data. Select the penalty parameter using cross-validation. Explain why post-selection inference problems and estimation bias make penalized regression inappropriate for causal estimation.
-  13. Implement weighted regression and partial likelihood methods for case-control, nested case-control, and case-cohort data. Articulate how case weights restore valid estimation of the target parameter under outcome-dependent sampling.
+  13. Implement weighted regression for case-control and case-cohort data. Articulate how case weights restore valid estimation of the target parameter under outcome-dependent sampling.
   14. Explain what structurally distinguishes time-to-event outcomes from other types of data. Estimate cause-specific and subdistribution cumulative incidence functions using the Kaplan-Meier and Aalen-Johansen estimators. Explain why censoring competing events can lead to overestimation of cumulative incidence.
   15. Fit parametric AFT models and the semiparametric Cox model to time-to-event data and construct cumulative risk curves from each. Explain why the hazard ratio accumulates selection bias in heterogeneous populations over follow-up time.
 
@@ -184,16 +184,15 @@ count for 30% of the overall grade.
 
 ### Assignment Schedule
 
-Each assignment is worth **5 points** (6 × 5 = 30 points total; 30% of final grade).
+Each assignment is worth **6 points** (5 × 6 = 30 points total; 30% of final grade).
 
 | Assignment | Weeks Covered | Topics | Due Date | Points |
 |-----------|---------------|--------|----------|--------|
-| 1 | 1–2 | RCT & Emulation; Data Collection | Tue Sep 15 | 5 |
-| 2 | 3–4 | Outcome-Dependent Sampling; Regression as a Toolkit | Tue Sep 29 | 5 |
-| 3 | 5–6 | Anatomy of a Regression Model; Generalized Linear Models | Mon Oct 26 | 5 |
-| 4 | 7–8 | Variance Estimation; Conditional vs. Marginal Adjustment | Sat Nov 14 | 5 |
-| 5 | 9–10 | Flexible Regression; Penalized Regression | Tue Nov 10 | 5 |
-| 6 | 11–13 | Regression for Outcome-Dependent Sampling; Survival Analysis: Concepts; Survival Analysis: Parametric and Semiparametric Models | Tue Dec 1 | 5 |
+| 1 | 1–2 | RCT & Emulation; Data Collection | Tue Sep 15 | 6 |
+| 2 | 3–4 | Outcome-Dependent Sampling; Regression as a Toolkit | Tue Sep 29 | 6 |
+| 3 | 5–6 | Anatomy of a Regression Model; Generalized Linear Models | Mon Oct 26 | 6 |
+| 4 | 7–9 | Variance Estimation; Conditional vs. Marginal Adjustment | Sat Nov 14 | 6 |
+| 5 | 10–13 | Flexible Regression; Penalized Regression; Survival Analysis | Fri Dec 11 | 6 |
 
 **Peer grading** will be expected on all of the assignments,
 patterned after scientific peer review. Each
@@ -220,7 +219,7 @@ For each free response answer, address the following:
 
 ### Peer Grading Schedule
 
-Each peer grade is worth **4 points** (5 × 4 = 20 points total; 20% of final grade). Peer grading is not required for Assignment 6.
+Each peer grade is worth **4 points** (5 × 4 = 20 points total; 20% of final grade).
 
 | Peer Grade | Grading | Due Date | Points |
 |-----------|---------|----------|--------|
@@ -228,7 +227,7 @@ Each peer grade is worth **4 points** (5 × 4 = 20 points total; 20% of final gr
 | 2 | Assignment 2 | Tue Oct 6 | 4 |
 | 3 | Assignment 3 | Mon Nov 9 | 4 |
 | 4 | Assignment 4 | Tue Nov 10 | 4 |
-| 5 | Assignment 5 | Tue Nov 24 | 4 |
+| 5 | Assignment 5 | TBD | 4 |
 
 **Final exam** will be given at the end of the semester as a summative performance
 based assessment covering all material outlined in the syllabus. The final exam will
@@ -260,10 +259,9 @@ The final exam will consist of hand-written long-answer questions drawn from the
 14. Cross-validation for penalty selection — describe what cross-validation estimates in the penalized regression context and what it does not guarantee
 15. Competing events and cumulative incidence — explain why applying 1 − KM in the presence of a competing event overestimates cumulative incidence, and how the Aalen-Johansen estimator addresses this
 16. The hazard ratio as a summary measure — explain why the hazard ratio accumulates selection bias in heterogeneous populations over follow-up time and what this implies for causal interpretation
-17. Parametric AFT vs. semiparametric Cox — compare what the parametric baseline assumption buys in an AFT model versus the Cox partial likelihood approach; explain how risk curves are constructed from each
+17. Parametric AFT vs. semiparametric Cox — compare what the parametric baseline assumption buys in an AFT model versus leaving the baseline unspecified in a Cox model; explain how risk curves are constructed from each
 18. Exposure definition — identify and explain the components of a well-defined exposure (implied intervention, referent group, timing, measurement), with an example
-19. Partial likelihood for case-control data — explain how the Cox partial likelihood handles outcome-dependent samples and contrast the `glm` and `coxph` approaches
-20. The exponential family as organizing concept — explain how the exponential family unifies the GLM family and what the canonical link function represents
+19. The exponential family as organizing concept — explain how the exponential family unifies the GLM family and what the canonical link function represents
 
 
 ## COURSE POLICIES
@@ -328,18 +326,18 @@ Labs meet Monday mornings and practice the *preceding* week's lecture — each l
 |  |  |  |
 | **7**<br>Lab: Mon 10/19<br>Lec: Tue 10/20 | **Variance Estimation**<br>• Residuals and the variance-covariance matrix<br>• Translating outcome variability into coefficient standard errors<br>• Model-based<br>• Sandwich<br>• Robust (HC versus cluster robust, brief connection to GEE)<br>• Bootstrap | **Lab 5: Fit the GLM Family to a Single Outcome**<br>• Fit logistic, log-binomial, Poisson with offset, and linear probability models to the same binary outcome<br>• Compare estimated associations, convergence behavior, and predicted probabilities<br>• Residual plots, leverage, and Cook's distance |
 |  |  |  |
-| **8**<br>Lab: Mon 10/26<br>Lec: Tue 10/27 | **Conditional vs. Marginal Adjustment**<br>• Reinforcing the target/nuisance distinction: exposure effect as target, confounder model as nuisance<br>• Collapsibility and the CCF<br>• Marginal Standardization, connections to g-Formula and g-Computation<br>• Propensity Scores<br>• IP weighting for marginal adjustment | **Lab 6: Compute Variance Three Ways**<br>• Derive model-based, sandwich (HC3), and bootstrap SEs manually with code<br>• Compute the same using canned software functions<br>• Simulate data with and without heteroscedasticity to show when estimates agree and diverge<br>• Add a clustering variable and compute cluster-robust SEs<br>• Note cross-software HC variant defaults (R, Stata, SAS) |
+| **8**<br>Lab: Mon 10/26<br>Lec: Tue 10/27 | **Conditional vs. Marginal Adjustment I**<br>• Reinforcing the target/nuisance distinction: exposure effect as target, confounder model as nuisance<br>• Collapsibility and the CCF<br>• Marginal Standardization, connections to g-Formula and g-Computation | **Lab 6: Compute Variance Three Ways**<br>• Derive model-based, sandwich (HC3), and bootstrap SEs manually with code<br>• Compute the same using canned software functions<br>• Simulate data with and without heteroscedasticity to show when estimates agree and diverge<br>• Add a clustering variable and compute cluster-robust SEs<br>• Note cross-software HC variant defaults (R, Stata, SAS) |
 |  |  |  |
-| **9**<br>Lab: Mon 11/2<br>Lec: Tue 11/3 *(Election Day — async)* | **Flexible Regression**<br>• Why linearity fails: misspecification in the nuisance function is a bias problem<br>• Splines: natural, restricted cubic, B-splines<br>• GAMs: additive structure as a practical default for nuisance modeling<br>• Partially linear models: parametric target, flexible nuisance | **Lab 7: Conditional vs. Marginal Estimates**<br>• Simulate data with known marginal and conditional effect structure<br>• Fit logistic and log-linear models; extract conditional estimates<br>• Implement g-computation and IP weighting<br>• Demonstrate empirically that the conditional OR ≠ marginal OR under logistic<br>• Build the CCF: code g_ν(·) = f^{-1}{f(·) + ν} for logit and log links and plot the curves |
+| **9**<br>Lab: Mon 11/2<br>Lec: Tue 11/3 *(Election Day — async)* | **Conditional vs. Marginal Adjustment II**<br>• Propensity Scores<br>• IP weighting for marginal adjustment<br>• Interactions and stratified outcome models in standardization<br>• Standardization vs. weighting: which nuisance function each models, and when each is preferred | **Lab 7: Conditional vs. Marginal Estimates**<br>• Simulate data with known marginal and conditional effect structure<br>• Fit logistic and log-linear models; extract conditional estimates<br>• Implement g-computation (marginal standardization)<br>• Demonstrate empirically that the conditional OR ≠ marginal OR under logistic<br>• Build the CCF: code g_ν(·) = f^{-1}{f(·) + ν} for logit and log links and plot the curves |
 |  |  |  |
-| **10**<br>Lab: Mon 11/9<br>Lec: Tue 11/10 | **Penalized Regression and Model Evaluation**<br>• What penalization does: shrinkage and regularization as bias-variance management<br>• Ridge, lasso, elastic net, Firth<br>• Cross-validation: tuning the penalty and honest model evaluation<br>• Penalization and post-selection inference problems | **Lab 8: Model a Continuous Exposure Flexibly**<br>• Fit the exposure five ways: linear, quadratic, natural cubic spline (3 knots), natural cubic spline (5 knots), GAM<br>• Overlay fitted curves with confidence bands<br>• Fit a partially linear model: parametric exposure, GAM-smoothed confounders<br>• Compare the exposure coefficient to the fully linear model |
+| **10**<br>Lab: Mon 11/9<br>Lec: Tue 11/10 | **Flexible Regression I**<br>• Why linearity fails: misspecification in the nuisance function is a bias problem<br>• Splines: natural, restricted cubic, B-splines<br>• Dose-response curves from spline fits: report predictions and contrasts, not coefficients | **Lab 8: IP Weighting**<br>• Fit a propensity score model to the Lab 7 data; construct unstabilized and stabilized weights<br>• Check positivity and covariate balance in the weighted pseudo-population<br>• Estimate the marginal risk difference and risk ratio by IP weighting; compare to g-computation<br>• Robust standard errors with the weights treated as known vs. the bootstrap |
 |  |  |  |
-| **11**<br>Lab: Mon 11/16<br>Lec: Tue 11/17 | **Regression for Outcome-Dependent Sampling** *(returning to the designs from Week 3)*<br>• Case-control, nested case-control, case-cohort, and outcome-dependent sampling regression schemes<br>• Partial likelihood for case-control data<br>• Weights for outcome-dependent sampled data | **Lab 9: OLS Instability and Regularization**<br>• Augment a real dataset with simulated near-collinear noise predictors<br>• Demonstrate OLS coefficient instability as predictors correlate<br>• Fit ridge, lasso, and elastic net; plot coefficient paths<br>• Use cross-validation to select the penalty |
+| **11**<br>Lab: Mon 11/16<br>Lec: Tue 11/17 | **Flexible Regression II**<br>• Cross-validation and the super learner: letting the data choose the nuisance model<br>• What flexibility costs: inference after a data-adaptive fit<br>• Partially linear models: parametric target, flexible nuisance | **Lab 9: Model a Continuous Exposure Flexibly**<br>• Fit the exposure five ways: linear, quadratic, natural cubic spline (3 knots), natural cubic spline (5 knots), B-spline<br>• Overlay fitted curves with confidence bands<br>• Compare predicted contrasts between two exposure levels across the fits |
 |  |  |  |
-| **12**<br>Lab: Mon 11/23<br>Lec: Tue 11/24<br>*(Thanksgiving recess Thu–Fri 11/26–27)* | **Survival Analysis: Concepts**<br>• What makes time-to-event data structurally different?<br>• The risk curve (CDF) as the quantity of interest<br>• Why the hazard ratio accumulates selection bias in heterogeneous populations over follow-up time and what this implies for causal interpretation<br>• KM and Aalen-Johansen as nonparametric estimators<br>• Left truncation / delayed entry; risk-set adjustment and the extended KM estimator<br>• Competing events: cause-specific vs. subdistribution risk | **Lab 10: Weighted Regression for Outcome-Dependent Samples**<br>• Return to the case-cohort sample saved in Lab 2, and draw case-control samples from the Lab 1 cohort<br>• Fit unweighted logistic regression; show bias in absolute risk estimates<br>• Restore valid estimation with case weights<br>• Use coxph to show how partial likelihood for case-control data works<br>• Contrast the glm and coxph approaches |
+| **12**<br>Lab: Mon 11/23<br>Lec: Tue 11/24<br>*(Thanksgiving recess Thu–Fri 11/26–27)* | **Penalized Regression and Model Evaluation**<br>• What penalization does: shrinkage and regularization as bias-variance management<br>• Ridge, lasso, elastic net, Firth<br>• Cross-validation: tuning the penalty and honest model evaluation<br>• Penalization and post-selection inference problems | **Lab 10: Fit a Partially Linear Model**<br>• Keep the exposure term parametric; model the confounders with splines, then with a cross-validated super learner<br>• Cross-fitted residual-on-residual regression with HC3 standard errors<br>• Compare the exposure coefficient and its standard error to the fully linear model |
 |  |  |  |
-| **13**<br>Lab: Mon 11/30<br>Lec: Tue 12/1 | **Survival Analysis: Parametric and Semiparametric Models**<br>• AFT models: what the parametric baseline buys you; Weibull, generalized gamma<br>• Building risk curves from AFT models<br>• Cox: semiparametric structure, the baseline as a nuisance function, partial likelihood recovery<br>• Building risk curves from Cox<br>• Descriptive-predictive-causal lens: choice of summary measure matters especially in causal contexts | **Lab 11: Estimate the Risk Curve Nonparametrically**<br>• Trace redistribution to the right on a small hand-built dataset<br>• Fit KM on the full time-to-event data<br>• Introduce late entry; fit the extended KM with delayed-entry risk sets<br>• Introduce a competing event; fit 1 − KM naively to show overestimation of cumulative incidence<br>• Fit Aalen-Johansen<br>• Overlay all three risk curves |
+| **13**<br>Lab: Mon 11/30<br>Lec: Tue 12/1 | **Survival Analysis: Cox and AFT Models**<br>• Nonparametric reference points: Kaplan-Meier and Aalen-Johansen; competing events and cause-specific vs. subdistribution risk<br>• AFT models: what the parametric baseline buys you; Weibull, generalized gamma<br>• Cox: semiparametric structure, the baseline as a nuisance function<br>• Building risk curves from AFT and Cox models | **Lab 11: OLS Instability and Regularization**<br>• Augment a real dataset with simulated near-collinear noise predictors<br>• Demonstrate OLS coefficient instability as predictors correlate<br>• Fit ridge, lasso, and elastic net; plot coefficient paths<br>• Use cross-validation to select the penalty |
 |  |  |  |
-| **14 — Review**<br>Lab: Mon 12/7<br>Lec: Tue 12/8 | **Review** | **Lab 12: Build Risk Curves from Survival Models**<br>• Fit Weibull and generalized gamma AFT models and a Cox model<br>• Extract and plot predicted risk curves from each<br>• Overlay against the KM from Lab 11 |
+| **14 — Review**<br>Lab: Mon 12/7 *(no lab)*<br>Lec: Tue 12/8 | **Review** | **No Lab** |
 |  |  |  |
-| **Final Exam**<br>Dec 9–15<br>*(exact date TBD)* | Covering all 20 topics listed above. | — |
+| **Final Exam**<br>Mon 12/14, 9:00 AM – 12:00 PM<br>R. Randall Rollins Bldg. R344 | Covering all 19 topics listed above. | — |
