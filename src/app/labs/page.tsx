@@ -66,6 +66,13 @@ export default function LabsPage() {
       starter: asset("/labs/lab6_starter.zip"),
       solutions: asset("/labs/lab6_solutions.zip"),
     },
+    {
+      topic: "Lab 7: Fit a Partially Linear Model",
+      description:
+        "One question, the effect of quitting smoking on weight change in the NHEFS data, and three ways of modelling the confounders beside one parametric exposure coefficient: natural cubic splines with ns() at two settings of the degrees of freedom and at knots we place ourselves, read through predictions and one contrast rather than coefficients; a super learner that chooses the nuisance models for the outcome and the propensity score, each cross-fitted; and residual-on-residual regression with an HC3 standard error, compared against the parametric fits.",
+      handout: asset("/labs/lab7.html"),
+      starter: asset("/labs/lab7_starter.zip"),
+    },
   ];
 
   return (
@@ -186,6 +193,21 @@ export default function LabsPage() {
             eicu.mit.edu
           </a>
           .
+        </p>
+        <p>
+          <strong>NHEFS attribution.</strong> The Lab 7 bundle redistributes the
+          NHEFS data (National Health and Nutrition Examination Survey Data I
+          Epidemiologic Follow-up Study) as distributed with Hernán MA, Robins
+          JM, <em>Causal Inference: What If</em> (Chapman &amp; Hall/CRC, 2020):
+          public-use US government survey data, freely available for teaching
+          from{" "}
+          <a
+            href="https://miguelhernan.org/s/nhefs.csv"
+            className="text-blue-600 hover:underline"
+          >
+            miguelhernan.org
+          </a>
+          . Please cite the book.
         </p>
       </div>
     </main>
