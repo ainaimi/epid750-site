@@ -69,9 +69,10 @@ export default function LabsPage() {
     {
       topic: "Lab 7: Fit a Partially Linear Model",
       description:
-        "One question, the effect of quitting smoking on weight change in the NHEFS data, and three ways of modelling the confounders beside one parametric exposure coefficient: natural cubic splines with ns() at two settings of the degrees of freedom and at knots we place ourselves, read through predictions and one contrast rather than coefficients; a super learner that chooses the nuisance models for the outcome and the propensity score, each cross-fitted; and residual-on-residual regression with an HC3 standard error, compared against the parametric fits.",
+        "We explore the effect of quitting smoking on weight change in the NHEFS data, but with different ways of modelling the confounders, including natural cubic splines with ns(). We learn to read complex model output through predictions and rather than coefficients. We use a simple super learner to chooses the nuisance models for the outcome and the propensity score, each cross-fitted, and then use residual-on-residual regression with a robust standard error, compared to parametric results.",
       handout: asset("/labs/lab7.html"),
       starter: asset("/labs/lab7_starter.zip"),
+      solutions: asset("/labs/lab7_solutions.zip"),
     },
   ];
 
