@@ -59,6 +59,35 @@ export default function AssignmentsPage() {
         </p>
       </div>
 
+      <div className="mb-8 rounded-md border border-gray-300 bg-gray-50 px-4 py-3">
+        <div className="font-medium">Final exam practice questions</div>
+        <p className="mt-1 text-sm text-gray-600">
+          Twenty-five practice questions covering the final exam topics in the
+          study guide, one per page, in the form of the pop quizzes. Work them
+          closed book first, then check your answers against the second copy.
+        </p>
+        <div className="mt-2 flex flex-wrap gap-6 text-sm font-medium">
+          <a
+            href={asset("/assignments/final_exam_practice_questions.pdf")}
+            className="text-blue-600 hover:text-blue-800"
+          >
+            Practice questions (PDF)
+          </a>
+          <a
+            href={asset("/assignments/final_exam_practice_questions_answers.pdf")}
+            className="text-blue-600 hover:text-blue-800"
+          >
+            Practice questions with answers (PDF)
+          </a>
+          <a
+            href={asset("/assignments/final_exam_study_guide.pdf")}
+            className="text-blue-600 hover:text-blue-800"
+          >
+            Study guide (PDF)
+          </a>
+        </div>
+      </div>
+
       <table className="w-full border-collapse">
         <tbody>
           {assignments.map((a, idx) => (
